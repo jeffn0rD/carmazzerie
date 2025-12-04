@@ -20,7 +20,7 @@
                                 <div class="home-icon-item">
                                 <?php } 
     	                           if(!empty($icon['url'])) {
-                                        echo '<i><img src="'.esc_attr($icon['url']).'"/></i>' ; 
+                                        echo '<i><img src="'.esc_attr($icon['url']).'" alt="Menu icon"/></i>' ; 
                                     } else{
                                         echo '<i class="'.esc_attr($icon['icon_o']).'"></i>'; 
                                     }

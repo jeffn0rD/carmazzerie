@@ -22,7 +22,7 @@
                                   $attachment_url = wp_get_attachment_url($attachment , 'full');
                                   $image = aq_resize($attachment_url, $slidewidth, $slideheight, true);
                                   if(empty($image)) {$image = $attachment_url;}
-                                echo '<li><img src="'.esc_url($image).'"/></li>';
+                                echo '<li><img src="'.esc_url($image).'" alt="Carousel slide image"/></li>';
                               }
                         }
                     } ?>                  

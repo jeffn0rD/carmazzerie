@@ -46,7 +46,7 @@
                             if(!empty($slide['link'])){ 
                               echo '<a href="'.esc_url($slide['link']).'" target="'.esc_attr($target).'">';
                             }
-                            echo '<img src="'.esc_url($image[0]).'" width="'.esc_attr($image[1]).'" height="'.esc_attr($image[2]).'" />';
+                            echo '<img src="'.esc_url($image[0]).'" width="'.esc_attr($image[1]).'" height="'.esc_attr($image[2]).'" alt="Carousel slide image" />';
                             if ($captions == '1') { ?> 
                                 <div class="flex-caption">
                                 <?php if (!empty($slide['title'])){ 

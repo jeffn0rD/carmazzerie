@@ -78,7 +78,7 @@
                                         $attachment_url = wp_get_attachment_url($attachment , 'full');
                                         $image = aq_resize($attachment_url, $slidewidth, $slideheight, true);
                                           if(empty($image)) {$image = $attachment_url;}
-                                        echo '<li><a href="'.esc_attr($attachment_url).'" data-rel="lightbox"><img src="'.esc_attr($image).'" width="'.esc_attr($slidewidth).'" height="'.esc_attr($slideheight).'" itemprop="image"/></a></li>';
+                                        echo '<li><a href="'.esc_attr($attachment_url).'" data-rel="lightbox"><img src="'.esc_attr($image).'" width="'.esc_attr($slidewidth).'" height="'.esc_attr($slideheight).'" alt="Gallery image" itemprop="image"/></a></li>';
                                       }
                                     }
                                   }?>                            
@@ -100,7 +100,7 @@
                                                     if(empty($image)) {$image = array($attachment_url,$slidewidth,$slideheight);} 
                                                     echo '<div class="carousel_gallery_item" style="float:left; display: table; position: relative; text-align: center; margin: 0; width:auto; height:'.esc_attr($image[2]).'px;">';
                                                     echo '<div class="carousel_gallery_item_inner" style="vertical-align: middle; display: table-cell;">';
-                                                    echo '<img src="'.esc_attr($image[0]).'" width="'.esc_attr($image[1]).'" height="'.esc_attr($image[2]).'" itemprop="image" />';
+                                                    echo '<img src="'.esc_attr($image[0]).'" width="'.esc_attr($image[1]).'" height="'.esc_attr($image[2]).'" alt="Post featured image" itemprop="image" />';
                                                       ?>
                                                     </div>
                                                   </div>

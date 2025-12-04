@@ -150,7 +150,7 @@
                                                     if(empty($image)) {$image = $attachment_url;} ?>
                                                     <li>
                                                       <a href="<?php the_permalink() ?>" alt="<?php the_title(); ?>">
-                                                        <img src="<?php echo esc_url($image); ?>" itemprop="image" class="" />
+                                                        <img src="<?php echo esc_url($image); ?>" alt="Post featured image" itemprop="image" class="" />
                                                       </a>
                                                     </li>
                                                 <?php 

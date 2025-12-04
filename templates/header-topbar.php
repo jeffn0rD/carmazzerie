@@ -22,7 +22,7 @@
 
                     echo '<li class="kad-tbicon-links"><a href="'.esc_attr($top_icon['link']).'" class="kad-color-'.esc_attr($top_icon['icon_o']).'" data-toggle="tooltip" data-placement="bottom" target="'.esc_attr($target).'" data-original-title="'.esc_attr($top_icon['title']).'">';
                     if(!empty($top_icon['url'])) {
-                      echo '<img src="'.esc_url($top_icon['url']).'"/>' ;
+                      echo '<img src="'.esc_url($top_icon['url']).'" alt="Header icon"/>' ;
                     } else { 
                       echo '<i class="'.esc_attr($top_icon['icon_o']).'"></i>';
                     }

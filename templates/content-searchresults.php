@@ -78,7 +78,7 @@
                                       if(empty($image)) {$image = $attachment_url;} ?>
                                         <li>
                                           <a href="<?php the_permalink() ?>" alt="<?php the_title(); ?>">
-                                            <img src="<?php echo esc_url($image); ?>" class="" />
+                                            <img src="<?php echo esc_url($image); ?>" alt="Search result thumbnail" class="" />
                                           </a>
                                         </li>
                                       <?php }

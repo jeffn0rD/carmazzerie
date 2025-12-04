@@ -742,7 +742,7 @@ class kad_image_widget extends WP_Widget{
     ?>
   <div class="kad_img_upload_widget">
     <p>
-        <img class="kad_custom_media_image" src="<?php if(!empty($instance['image_uri'])){echo $instance['image_uri'];} ?>" style="margin:0;padding:0;max-width:100px;display:block" />
+        <img class="kad_custom_media_image" src="<?php if(!empty($instance['image_uri'])){echo $instance['image_uri'];} ?>" alt="Widget image" style="margin:0;padding:0;max-width:100px;display:block" />
     </p>
     <p>
         <label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php _e('Image URL', 'pinnacle'); ?></label><br />
