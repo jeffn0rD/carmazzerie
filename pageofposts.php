@@ -78,9 +78,20 @@ if (TRUE) {
 					<div class="flexslider kt-flexslider loading kad-light-gallery" style="max-width: 300px;" data-flex-speed="7000" data-flex-anim-speed="400" data-flex-animation="fade" data-flex-auto="true">
 					<ul class="slides">
 						<?php
+							$property_title = 	get_the_title();
+							$image_alt_text = sprintf(
+								'%s - Property Featured Image',
+								$property_title,
+							);
+							$custom_attributes = array(
+								'alt'   => $image_alt_text,
+								'title' => $image_alt_text  // Also good for hover tooltips
+							);
+						
+						
 							if ( has_post_thumbnail() ) {
 								echo '<li>';
-								the_post_thumbnail($size = 'slider-medium');
+								the_post_thumbnail($size = 'slider-medium', $attr = $custom_attributes);
 								echo '</li><!--end slide-->';			
 							}
 							if ($show_attachments == 'yes') {
@@ -98,11 +109,26 @@ if (TRUE) {
 								if ( empty($images) ) {
 									// no attachments here
 								} else {
-									foreach ( $images as $attachment_id => $attachment ) {
+									$image_num = 1;
+									foreach ( $images as $attachment_id => $attachment ) {										
+										
+										$image_alt_text = sprintf(
+											'%s - Property Image %d of %d',
+											$property_title,
+											$image_num,
+											count($images)
+										);
+										$custom_attributes = array(
+											'alt'   => $image_alt_text,
+											'title' => $image_alt_text  // Also good for hover tooltips
+										);
+										
 										echo '<li>';
 										//the_post_thumbnail($size = 'medium');
-										echo wp_get_attachment_image( $attachment_id, 'slider-medium' );
+										echo wp_get_attachment_image( $attachment_id, 'slider-medium', false, $custom_attributes );
 										echo '</li><!--end slide-->';			
+										
+										$image_num++;
 									}
 								}
 							}

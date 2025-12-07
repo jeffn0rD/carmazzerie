@@ -482,13 +482,16 @@ class kad_recent_posts_widget extends WP_Widget {
     <ul>
     <?php  while ($r->have_posts()) : $r->the_post(); ?>
     <li class="clearfix postclass">
-        <a href="<?php the_permalink() ?>" title="<?php echo esc_attr(get_the_title() ? get_the_title() : get_the_ID()); ?>" class="recentpost_featimg">
+		<?php
+			$attr_title = esc_attr(get_the_title() ? get_the_title() : get_the_ID());		
+		?>
+        <a href="<?php the_permalink() ?>" title="<?php echo $attr_title; ?>" class="recentpost_featimg">
           <?php global $post; if(has_post_thumbnail( $post->ID ) ) { 
             the_post_thumbnail( 'pinnacle_widget-thumb' ); 
           } else { 
             $image_url = pinnacle_img_placeholder_small();
-            echo '<img width="60" height="60" src="'.$image_url.'" class="attachment-widget-thumb wp-post-image" alt="">'; } ?></a>
-        <a href="<?php the_permalink() ?>" title="<?php echo esc_attr(get_the_title() ? get_the_title() : get_the_ID()); ?>" class="recentpost_title"><?php if ( get_the_title() ) the_title(); else the_ID(); ?></a>
+            echo '<img width="60" height="60" src="'.$image_url.'" class="attachment-widget-thumb wp-post-image" alt="'.$attr_title.'" title="'.$attr_title.'>'; } ?></a>
+        <a href="<?php the_permalink() ?>" title="<?php echo $attr_title; ?>" class="recentpost_title"><?php if ( get_the_title() ) the_title(); else the_ID(); ?></a>
         <span class="recentpost_date color_gray"><?php echo get_the_date(get_option( 'date_format' )); ?></span>
         </li>
     <?php endwhile; ?>

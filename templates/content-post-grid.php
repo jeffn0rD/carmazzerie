@@ -67,8 +67,19 @@
             
             <?php
 				if ( has_post_thumbnail() ) {
+					$property_title = get_the_title();
+					$image_alt_text = sprintf(
+						'%s - Featured Property Image',
+						$property_title
+					);
+					
+					$custom_attributes = array(
+						'alt'   => $image_alt_text,
+						'title' => $image_alt_text  // Also good for hover tooltips
+					);
+					
 					echo '<li>';
-					the_post_thumbnail($size = 'blog-grid');
+					the_post_thumbnail($size = 'blog-grid', $attr = $custom_attributes);
 					echo '</li><!--end slide-->';			
 				}
 				// uncomment this code to include image attachments in sliders for each grid item
