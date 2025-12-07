@@ -8,6 +8,8 @@ function pinnacle_scripts() {
   wp_enqueue_style('pinnacle_theme', get_template_directory_uri() . '/assets/css/pinnacle.css', false, '135');
   // Accessibility fix: Load fixed CSS with corrected font sizes (8-11px → 12px)
   wp_enqueue_style('pinnacle_accessibility_fixes', get_template_directory_uri() . '/assets/css/pinnacle_unmin_fixed.css', array('pinnacle_theme'), '135');
+  // Accessibility fix: Load color contrast fixes for WCAG 2.1 AA compliance
+  wp_enqueue_style('pinnacle_color_contrast_fixes', get_template_directory_uri() . '/assets/css/color_contrast_fixes.css', array('pinnacle_accessibility_fixes'), '135');
   global $pinnacle; if(isset($pinnacle['skin_stylesheet']) && !empty($pinnacle['skin_stylesheet'])) {$skin = $pinnacle['skin_stylesheet'];} else { $skin = 'default.css';} 
  wp_enqueue_style('pinnacle_skin', get_template_directory_uri() . '/assets/css/skins/'.$skin.'', false, null);
 
