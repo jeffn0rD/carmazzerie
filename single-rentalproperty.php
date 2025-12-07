@@ -139,7 +139,7 @@ function revconcept_get_images($post_id) {
 								<td>Google Map:</td>
 								<td>
 									<?php if (get_cfc_field('rp_settings', 'google-map-link') != 'NA') { ?>
-										<a target='_blank' href='<?=the_cfc_field('rp_settings', 'google-map-link');?>'>Map</a>
+										<a target='_blank' href='<?=the_cfc_field('rp_settings', 'google-map-link');?>' aria-label='View property location on Google Maps (opens in new window)'>Map</a>
 									<?php } else { ?>
 										NA
 									<?php } ?>
