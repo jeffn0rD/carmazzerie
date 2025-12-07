@@ -64,7 +64,7 @@
         		$footerstring = str_replace('[copyright]','&copy;',$footerstring);
         		$footerstring = str_replace('[the-year]',date('Y'),$footerstring);
         		$footerstring = str_replace('[site-name]',get_bloginfo('name'),$footerstring);
-        		$footerstring = str_replace('[theme-credit]','- WordPress Theme by <a href="http://www.kadencethemes.com/" aria-label="Kadence Themes (opens in new tab)" target="_blank">Kadence Themes</a>',$footerstring);
+        		$footerstring = str_replace('[theme-credit]','- WordPress Theme by <a href="http://www.kadencethemes.com/" target="_blank" aria-label="Kadence Themes website (opens in new window)">Kadence Themes</a>',$footerstring);
         		//ucho '<p>'. do_shortcode($footerstring).'</p>';
 			}
 			?>
