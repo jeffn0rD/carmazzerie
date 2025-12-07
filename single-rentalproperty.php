@@ -11,8 +11,12 @@ function revconcept_get_images($post_id) {
      //if ($images) :
 	if ( has_post_thumbnail() ) {
 		echo '<li>';
+		$custom_attributes = array(
+				'alt'   => get_the_title(),
+				'title' => get_the_title()
+		);
 		//the_post_thumbnail($size = 'medium');
-		the_post_thumbnail($size = 'slider-large');
+		the_post_thumbnail($size = 'slider-large', $attr = $custom_attributes);
 		echo '</li><!--end slide-->';			
 	}
 	
@@ -31,15 +35,28 @@ function revconcept_get_images($post_id) {
 	if ( empty($images) ) {
 		// no attachments here
 	} else {
+		$image_num = 1;
 		foreach ( $images as $attachment_id => $attachment ) {
+			$property_title = get_the_title();
+			$image_alt_text = sprintf(
+				'%s - Property Image %d of %d',
+				$property_title,
+				$image_num,
+				count($images)
+			);
+			
+			$custom_attributes = array(
+				'alt'   => $image_alt_text,
+				'title' => $image_alt_text  // Also good for hover tooltips
+			);
 			echo '<li>';
 			//the_post_thumbnail($size = 'medium');
-			echo wp_get_attachment_image( $attachment_id, 'slider-large' );
-			echo '</li><!--end slide-->';			
+			echo wp_get_attachment_image( $attachment_id, 'slider-large', false, $custom_attributes );
+			echo '</li><!--end slide ' . $image_alt_text . '-->';	
+
+			$image_num++;
 		}
 	}
-		
-	
 	
 }
 
