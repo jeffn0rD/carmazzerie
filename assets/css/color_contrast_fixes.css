@@ -87,3 +87,16 @@ a:focus {
 .subhead a {
   color: #767676;
 }
+
+/* Fix 11: Icon Title Styling - Replace h4 semantic issues */
+.icon-title {
+  display: block;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

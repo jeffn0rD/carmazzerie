@@ -46,7 +46,7 @@
                                                     echo '<i class="'.esc_attr($icon['icon_o']).'"></i>';
                                                 } 
                                                 if (!empty($icon['title'])) {
-                                                    echo '<h4>'.esc_html($icon['title']).'</h4>';
+                                                    echo '<span class="icon-title">'.esc_html($icon['title']).'</span>';
                                                 } 
                                                 if(!empty($icon['description'])) {
                                                     echo '<p>'.esc_html($icon['description']).'</p>';
