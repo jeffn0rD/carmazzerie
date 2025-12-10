@@ -7,6 +7,7 @@
  * Changes:
  * - #999999 (light gray) → #767676 (4.54:1 contrast on white)
  * - #428bca (blue) → #2e6da4 (4.52:1 contrast on white)
+ * - #777777 (medium gray) → #767676 (4.54:1 contrast on white)
  */
 
 /* Fix 1: Small text in headings - was #999999, now #767676 */
@@ -79,4 +80,10 @@ a.text-primary:hover {
 a:hover,
 a:focus {
   color: #1f496e;
+}
+
+/* Fix 10: Post metadata (author, date) - was #777, now #767676 */
+.subhead,
+.subhead a {
+  color: #767676;
 }
