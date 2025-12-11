@@ -32,7 +32,7 @@
                         <div class="postcontent">
                           <header>
                               <a href="<?php the_permalink() ?>">
-                                <h5 class="entry-title" itemprop="name headline"><?php the_title();?></h5>
+                                <span class="entry-title entry-title-h5" itemprop="name headline"><?php the_title();?></span>
                               </a>
                               <?php get_template_part('templates/entry', 'meta-subhead'); ?>
                           </header>

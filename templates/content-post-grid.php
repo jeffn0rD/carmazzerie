@@ -160,7 +160,10 @@
                   <div class="postcontent">
                         <header>
                           <a href="<?php the_permalink() ?>">
-                            <?php echo '<'.esc_attr($titletag).' class="entry-title" itemprop="name headline">';  the_title(); echo '</'.esc_attr($titletag).'>'; ?>
+                            <?php 
+								#echo '<'.esc_attr($titletag).' class="entry-title entry-title-h5" itemprop="name headline">';  the_title(); echo '</'.esc_attr($titletag).'>'; 
+								echo '<span class="entry-title entry-title-'.esc_attr($titletag).'" itemprop="name headline">';  the_title(); echo '</'.esc_attr($titletag).'>'; 
+							?>
                           </a>
                           <?php get_template_part('templates/entry', 'meta-subhead'); ?>
                         </header>
