@@ -143,3 +143,44 @@ a:focus {
 	
 	text-align: -webkit-center;
 }
+
+.entry-title-h1 {
+  font-family: Raleway;
+  line-height: 50px;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 44px;
+  color: #444;
+  display: block;
+  unicode-bidi: isolate;
+  
+  text-align: -webkit-center;
+}
+
+
+.entry-content[itemprop="articleBody"] > p > a:hover {
+	text-decoration: underline;
+}
+
+
+.property-header {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.property-footer {
+    display: block;
+    margin-top: 10px;
+}
+
+.property-footer.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.hometitle, .sectiontitle, .widget-title {
+    text-align: center;
+    padding-bottom: 15px;
+    font-size: 26px !important;
+}

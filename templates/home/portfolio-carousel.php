@@ -151,7 +151,7 @@ if ( post_type_exists( 'portfolio' ) ) {
 <div class="home-portfolio home-margin carousel_outerrim home-padding kad-animation" data-animation="fade-in" data-delay="0">
 
 	<?php if(!empty($pinnacle['portfolio_title'])) {
-		echo '<div class="clearfix"><h3 class="hometitle">'.esc_html($pinnacle['portfolio_title']).'</h3></div>';
+		echo '<div class="clearfix"><h2 class="hometitle">'.esc_html($pinnacle['portfolio_title']).'</h2></div>';
 	}
 
 	$shortcodeclasses[] = $pstyleclass;

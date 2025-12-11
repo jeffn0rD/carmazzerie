@@ -11,7 +11,7 @@
               } else {
                 $image_width = 340;
                 $image_height = 226;
-                $titletag = "h5";
+                $titletag = "h5";				
               }
             } else {
               $image_width = 340;
@@ -158,20 +158,20 @@
                 <div id="post-<?php the_ID(); ?>" class="blog_item postclass kad_blog_fade_in grid_item" itemscope="" itemtype="http://schema.org/BlogPosting">
             <?php }?>
                   <div class="postcontent">
-                        <header>
+                        <div class="property-header">
                           <a href="<?php the_permalink() ?>">
                             <?php 
 								#echo '<'.esc_attr($titletag).' class="entry-title entry-title-h5" itemprop="name headline">';  the_title(); echo '</'.esc_attr($titletag).'>'; 
-								echo '<span class="entry-title entry-title-'.esc_attr($titletag).'" itemprop="name headline">';  the_title(); echo '</'.esc_attr($titletag).'>'; 
+								echo '<h3 class="entry-title entry-title-'.esc_attr($titletag).'" itemprop="name headline">';  the_title(); echo '</h3>'; 
 							?>
                           </a>
                           <?php get_template_part('templates/entry', 'meta-subhead'); ?>
-                        </header>
+                        </div>
                         <div class="entry-content" itemprop="articleBody">
                             <?php the_excerpt(); ?>
                         </div>
-                        <footer class="clearfix">
+                        <div class="property-footer clearfix">
                             <?php get_template_part('templates/entry', 'meta-footer'); ?>
-                        </footer>
+                        </div>
                   </div><!-- Text size -->
                 </div> <!-- Blog Item -->

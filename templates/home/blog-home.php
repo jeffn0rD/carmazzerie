@@ -55,7 +55,7 @@
 			if ( $wp_query ) {
 				?>
 				<div class="clearfix">
-					<h3 class="hometitle"><?php echo esc_html($blog_cat);?></h3>
+					<h2 class="hometitle"><?php echo esc_html($blog_cat);?></h2>
 				</div>
 				<div id="kad-blog-grid" class="rowtight init-masonry" data-masonry-selector=".b_item">
 				<?php

@@ -123,13 +123,13 @@ function revconcept_get_images($post_id) {
                       } else if(isset($pinnacle['single_post_title_output']) && $pinnacle['single_post_title_output'] == 'none' ) {
                         // Do nothing
                       } else { ?>
-                      <h1 class="entry-title" itemprop="name headline"><?php the_title(); ?></h1>
+                      <h2 class="entry-title" itemprop="name headline"><?php the_title(); ?></h2>
                       <?php } ?>
                       <?php #get_template_part('templates/entry', 'meta-subhead'); ?>
                   </header>
                   
                   <div class="entry-content clearfix" itemprop="description articleBody">
-					<h2><?=the_cfc_field('rp_settings', 'location');?></h2>
+					<h3><?=the_cfc_field('rp_settings', 'location');?></h3>
 					
                     <?php the_content(); ?>
                     
