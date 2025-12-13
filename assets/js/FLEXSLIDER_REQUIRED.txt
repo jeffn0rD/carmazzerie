@@ -1,0 +1,19 @@
+IMPORTANT: FlexSlider Library Required
+========================================
+
+This theme requires the FlexSlider jQuery plugin for property image galleries.
+
+INSTALLATION:
+1. Download FlexSlider from: https://github.com/woocommerce/FlexSlider
+2. Copy 'jquery.flexslider-min.js' to this directory
+
+OR download directly:
+wget https://raw.githubusercontent.com/woocommerce/FlexSlider/master/jquery.flexslider-min.js
+
+The file should be placed at:
+assets/js/jquery.flexslider-min.js
+
+Without this file, property image sliders will not work.
+
+License: GPLv2
+Source: https://github.com/woocommerce/FlexSlider
