@@ -1,13 +1,10 @@
 <?php
 /**
  * Template part for displaying property cards in grid
+ * Matches original CarmazziRealEstate theme layout
  * 
  * @package Carmazzi_Distilled
  */
-
-$location = carmazzi_get_property_meta(get_the_ID(), 'location');
-$bedrooms = carmazzi_get_property_meta(get_the_ID(), 'bedrooms');
-$bathrooms = carmazzi_get_property_meta(get_the_ID(), 'bathrooms');
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('property-card'); ?>>
@@ -29,31 +26,18 @@ $bathrooms = carmazzi_get_property_meta(get_the_ID(), 'bathrooms');
             </a>
         </h3>
         
-        <?php if ($location || $bedrooms || $bathrooms) : ?>
-            <div class="property-meta">
-                <?php if ($location) : ?>
-                    <span class="property-location-meta"><?php echo esc_html($location); ?></span>
-                <?php endif; ?>
-                
-                <?php if ($bedrooms || $bathrooms) : ?>
-                    <span class="property-specs">
-                        <?php
-                        $specs = array();
-                        if ($bedrooms) {
-                            $specs[] = sprintf(_n('%s Bedroom', '%s Bedrooms', $bedrooms, 'carmazzi-distilled'), $bedrooms);
-                        }
-                        if ($bathrooms) {
-                            $specs[] = sprintf(_n('%s Bathroom', '%s Bathrooms', $bathrooms, 'carmazzi-distilled'), $bathrooms);
-                        }
-                        echo implode(' | ', $specs);
-                        ?>
-                    </span>
-                <?php endif; ?>
-            </div>
-        <?php endif; ?>
+        <div class="property-meta">
+            <?php
+            printf(
+                __('by %1$s on %2$s', 'carmazzi-distilled'),
+                '<a href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a>',
+                '<time datetime="' . esc_attr(get_the_date('c')) . '">' . esc_html(get_the_date()) . '</time>'
+            );
+            ?>
+        </div>
         
         <div class="property-excerpt">
-            <?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?>
+            <?php echo wp_trim_words(get_the_excerpt(), 30, '...'); ?>
         </div>
         
         <a href="<?php the_permalink(); ?>" class="read-more">

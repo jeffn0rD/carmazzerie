@@ -6,15 +6,14 @@
  */
 
 get_header();
-?>
 
-<?php
 // Hero Section
 $hero_image = get_header_image();
 $hero_title = get_theme_mod('carmazzi_hero_title', 'Welcome to Carmazzi Real Estate');
 $hero_subtitle = get_theme_mod('carmazzi_hero_subtitle', 'Residential Real Estate for the Greater Sacramento Area');
 ?>
 
+<!-- Hero Section with Header Overlay -->
 <section class="hero-section" style="background-image: url('<?php echo esc_url($hero_image); ?>');" role="banner">
     <div class="hero-content">
         <h1 class="hero-title"><?php echo esc_html($hero_title); ?></h1>
@@ -22,57 +21,117 @@ $hero_subtitle = get_theme_mod('carmazzi_hero_subtitle', 'Residential Real Estat
     </div>
 </section>
 
+<!-- Icon Menu Section -->
+<section class="icon-menu-section">
+    <div class="container">
+        <div class="icon-menu-grid">
+            <a href="<?php echo esc_url(home_url('/owners/')); ?>" class="icon-menu-item">
+                <div class="icon-circle">
+                    <i class="icon-home">🏠</i>
+                </div>
+                <h4 class="icon-title"><?php _e('Owners', 'carmazzi-distilled'); ?></h4>
+            </a>
+            
+            <a href="<?php echo esc_url(home_url('/applicants/')); ?>" class="icon-menu-item">
+                <div class="icon-circle">
+                    <i class="icon-doc">📄</i>
+                </div>
+                <h4 class="icon-title"><?php _e('Applicants', 'carmazzi-distilled'); ?></h4>
+            </a>
+            
+            <a href="<?php echo esc_url(home_url('/for-sale/')); ?>" class="icon-menu-item">
+                <div class="icon-circle">
+                    <i class="icon-tag">🏷️</i>
+                </div>
+                <h4 class="icon-title"><?php _e('For Sale', 'carmazzi-distilled'); ?></h4>
+            </a>
+            
+            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="icon-menu-item">
+                <div class="icon-circle">
+                    <i class="icon-user">👤</i>
+                </div>
+                <h4 class="icon-title"><?php _e('Contact Us', 'carmazzi-distilled'); ?></h4>
+            </a>
+        </div>
+    </div>
+</section>
+
 <main id="main-content" class="site-main">
     <section class="properties-section">
         <div class="container">
-            <h2 class="section-title"><?php _e('Available Rentals', 'carmazzi-distilled'); ?></h2>
             
             <?php
-            // Query rental properties
-            $args = array(
+            // Get all rental properties
+            $all_properties_args = array(
                 'post_type'      => 'rentalproperty',
-                'posts_per_page' => 12,
+                'posts_per_page' => -1, // Get all
                 'orderby'        => 'date',
                 'order'          => 'DESC',
             );
             
-            $properties_query = new WP_Query($args);
+            $all_properties = new WP_Query($all_properties_args);
             
-            if ($properties_query->have_posts()) :
-                ?>
-                <div class="property-grid">
-                    <?php
-                    while ($properties_query->have_posts()) :
-                        $properties_query->the_post();
-                        get_template_part('template-parts/content', 'property-card');
-                    endwhile;
-                    ?>
-                </div>
-                
-                <?php
-                // Pagination
-                if ($properties_query->max_num_pages > 1) :
-                    ?>
-                    <nav class="pagination" role="navigation" aria-label="<?php esc_attr_e('Properties pagination', 'carmazzi-distilled'); ?>">
-                        <?php
-                        echo paginate_links(array(
-                            'total'     => $properties_query->max_num_pages,
-                            'current'   => max(1, get_query_var('paged')),
-                            'prev_text' => __('&larr; Previous', 'carmazzi-distilled'),
-                            'next_text' => __('Next &rarr;', 'carmazzi-distilled'),
-                        ));
-                        ?>
-                    </nav>
-                    <?php
-                endif;
-                
+            // Separate available and rented properties
+            $available_properties = array();
+            $rented_properties = array();
+            
+            if ($all_properties->have_posts()) {
+                while ($all_properties->have_posts()) {
+                    $all_properties->the_post();
+                    $title = get_the_title();
+                    
+                    // Check if "RENTED" appears in the title (case-insensitive)
+                    if (stripos($title, 'RENTED') !== false) {
+                        $rented_properties[] = get_post();
+                    } else {
+                        $available_properties[] = get_post();
+                    }
+                }
                 wp_reset_postdata();
-            else :
-                ?>
-                <p class="text-center"><?php _e('No properties available at this time. Please check back soon.', 'carmazzi-distilled'); ?></p>
-                <?php
-            endif;
+            }
+            
+            // Display Available Rentals (limit to 3)
+            $available_to_show = array_slice($available_properties, 0, 3);
             ?>
+            
+            <div class="property-section-wrapper">
+                <h2 class="section-title"><?php _e('Available Rentals', 'carmazzi-distilled'); ?></h2>
+                
+                <?php if (!empty($available_to_show)) : ?>
+                    <div class="property-grid">
+                        <?php
+                        foreach ($available_to_show as $property) {
+                            setup_postdata($property);
+                            get_template_part('template-parts/content', 'property-card');
+                        }
+                        wp_reset_postdata();
+                        ?>
+                    </div>
+                <?php else : ?>
+                    <p class="text-center"><strong><?php _e('*** Currently No Available Rentals (100% Occupancy). Please check back in again soon. ***', 'carmazzi-distilled'); ?></strong></p>
+                <?php endif; ?>
+            </div>
+            
+            <?php
+            // Display Rented Properties (limit to 9)
+            $rented_to_show = array_slice($rented_properties, 0, 9);
+            
+            if (!empty($rented_to_show)) :
+            ?>
+                <div class="property-section-wrapper">
+                    <h2 class="section-title"><?php _e('Rented', 'carmazzi-distilled'); ?></h2>
+                    <div class="property-grid">
+                        <?php
+                        foreach ($rented_to_show as $property) {
+                            setup_postdata($property);
+                            get_template_part('template-parts/content', 'property-card');
+                        }
+                        wp_reset_postdata();
+                        ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+            
         </div>
     </section>
 </main>

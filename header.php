@@ -20,6 +20,19 @@
     <?php _e('Skip to content', 'carmazzi-distilled'); ?>
 </a>
 
+<!-- Top Bar -->
+<div class="top-bar">
+    <div class="container">
+        <ul class="top-bar-menu">
+            <li><a href="<?php echo esc_url(home_url('/owners/')); ?>"><?php _e('Owners', 'carmazzi-distilled'); ?></a></li>
+            <li><a href="<?php echo esc_url(home_url('/applicants/')); ?>"><?php _e('Applicants', 'carmazzi-distilled'); ?></a></li>
+            <li><a href="<?php echo esc_url(home_url('/for-sale/')); ?>"><?php _e('For Sale', 'carmazzi-distilled'); ?></a></li>
+            <li><a href="<?php echo esc_url(home_url('/contact/')); ?>"><?php _e('Contact Us', 'carmazzi-distilled'); ?></a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Main Header -->
 <header class="site-header" role="banner">
     <div class="container">
         <div class="site-branding">
@@ -64,7 +77,6 @@
 function carmazzi_default_menu() {
     ?>
     <ul id="primary-menu">
-        <li><a href="<?php echo esc_url(home_url('/')); ?>"><?php _e('Home', 'carmazzi-distilled'); ?></a></li>
         <li><a href="<?php echo esc_url(home_url('/available-rentals/')); ?>"><?php _e('Available Rentals', 'carmazzi-distilled'); ?></a></li>
         <li><a href="<?php echo esc_url(home_url('/owners/')); ?>"><?php _e('Owners', 'carmazzi-distilled'); ?></a></li>
         <li><a href="<?php echo esc_url(home_url('/applicants/')); ?>"><?php _e('Applicants', 'carmazzi-distilled'); ?></a></li>
