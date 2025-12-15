@@ -3,59 +3,33 @@
 ## Carmazzi Real Estate Theme Distillation — Project Context
 
 ### Project Goal
-Achieve **pixel-perfect visual parity** and WCAG 2.1 AA compliance between:
+**REPAIR & RESTORE.** The theme is currently broken visually and functionally.
 - **Original Site:** https://www.carmazzire.com/
 - **Staging Site:** https://jeffreypaulramenllc.com/
 
-### Repository Information
-- **GitHub:** https://github.com/jeffn0rD/carmazzerie
-- **Branch:** `theme-distilled`
-- **Status:** Iteration 2 Complete (CTA Section & Customizer added).
-- **Deployment:** User handles deployment. AI focuses on code, commits, and parity.
+### CRITICAL DEFECTS (Must Fix Immediately)
+1.  **Footer Duplication:** The footer content appears twice or is malformed. This indicates a broken HTML structure or unclosed Loop in `front-page.php`.
+2.  **Missing Fonts:** The site is using fallback fonts (Times/Arial). 'Raleway' is NOT loading.
+3.  **Header/Logo Ugly:** The header has a white background and borders. It should be **transparent** (overlaying the hero image) with no borders.
+4.  **Wrong Colors:** The blue is incorrect. It must be `#0066cc`.
+5.  **Missing Properties:** The `rentalproperty` query is failing.
+6.  **Oversized Elements:** The site scale is too large (container width > 1200px).
 
-### Theme Structure (Root)
-- **Templates:** `front-page.php`, `header.php`, `footer.php`, `index.php`, `page.php`, `single.php`, `archive.php`, `archive-rentalproperty.php`, `single-rentalproperty.php`, `home.php`, `search.php`, `sidebar.php`, `404.php`
-- **Parts:** `template-parts/content-property-card.php`
-- **Styles:** `assets/css/main.css` (Consolidated styles)
-- **Images:** `assets/images/` (Footer logos: `equalhousing.png`, `mls.png`, `realtor.png`, `narpm2.png`)
-- **Core:** `functions.php`
+### Theme Structure
+- **Templates:** `front-page.php`, `header.php`, `footer.php`.
+- **Styles:** `assets/css/main.css`.
+- **Functions:** `functions.php` (Enqueues, Customizer).
 
-### Functional Specifications
-1.  **CPT (`rentalproperty`) Logic:**
-    *   **Rented:** Title contains "RENTED" (case-insensitive). Limit: 9.
-    *   **Available:** All other properties. Limit: 3.
-2.  **Icon Menu Links:**
-    *   Owners -> `/owners/`
-    *   Applicants -> `/applicants/`
-    *   For Sale -> `/for-sale/`
-    *   Contact Us -> `/contact/`
-3.  **Customizer Settings:**
-    *   **Hero:** `carmazzi_hero_title`, `carmazzi_hero_subtitle`, Header Image (core).
-    *   **CTA:** `carmazzi_cta_text` (textarea).
+### Technical Specifications
+- **Fonts:** Use **Google Fonts (Raleway)**. Enqueue in `functions.php`. Do not look for local font files unless they exist (unlikely).
+- **Colors:**
+  - Primary Blue: `#0066cc`
+  - Dark Blue/Grey: `#2c3e50`
+  - Text Grey: `#666666`
+- **Layout:**
+  - Container Max-Width: `1170px` (Standard Bootstrap size).
+  - Header: Absolute positioning or transparent background on Homepage.
 
-### Visual Reference & Styling
-- **Colors:** Primary `#0066cc`, Hover `#096abf`, Dark `#2c3e50`, Light `#bdc3c7`, White `#fff`.
-- **Typography:** Raleway (Google Fonts), Arial fallback.
-- **Key Classes:** `.hero-section`, `.icon-menu-section`, `.properties-section`, `.property-grid`, `.cta-section`, `.site-footer`.
-
-### Visual Comparison Checklist (Priority Areas)
-*Compare Staging vs Original specifically on:*
-1.  **Hero Section:** Background positioning, title/subtitle font weights (boldness), overlay opacity/darkness, vertical spacing.
-2.  **Icon Menu:** Exact icon sizes, circle dimensions, grid gaps, hover color effects.
-3.  **Property Cards:** Image aspect ratios, card padding, title styling, grid layout gaps (responsive).
-4.  **CTA Section:** Background overlay darkness (readability), text line-height, button padding/hover.
-5.  **Footer:** Logo sizing and spacing, disclaimer text styling, background color.
-
-### Coding Standards & Efficiency
-- **PHP:** Use `esc_html`, `esc_url`, `esc_attr`. Sanitize all inputs.
-- **CSS:** Keep in `assets/css/main.css`. No inline styles.
-- **Accessibility:** Logical headings (H1->H2), visible focus states, `aria-label` on icon links.
-- **Workflow:**
-    *   **Always commit and push** changes at the end of the session.
-    *   **Accomplish significant work** (fix multiple sections per iteration).
-    *   **Do not wait** for feedback on obvious visual mismatches—fix them.
-
-### Do Not
-- Do not change CPT logic or queries.
-- Do not add plugins or dependencies.
-- Do not use page builders.
+### Coding Standards
+- **Debug:** Check `WP_Query` arguments. Check for unclosed `</div>` tags.
+- **CSS:** Remove `background-color: #fff` from the header on the front page.

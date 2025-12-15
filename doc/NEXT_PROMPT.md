@@ -2,38 +2,41 @@
 
 I am continuing the Carmazzi Real Estate theme distillation project.
 
-**PROJECT GOAL:** Achieve pixel-perfect visual parity between Staging (jeffreypaulramenllc.com) and Original (carmazzire.com).
-
-**CURRENT STATUS:**
-- Repo: `jeffn0rD/carmazzerie` (Branch: `theme-distilled`)
-- Iteration 2 is complete (CTA added).
-- Full context is in `PROJECT_CONTEXT_SUMMARY.md`.
+**PROJECT GOAL:** RESCUE MISSION. Fix the broken layout, missing assets, and logic errors.
+**CURRENT STATUS:** The staging site has repeated footers, wrong fonts, ugly header backgrounds, and no properties.
+**REPO:** `jeffn0rD/carmazzerie` (Branch: `theme-distilled`)
 
 **YOUR MISSION FOR THIS SESSION:**
-I have deployed the latest theme changes to staging. I need you to perform a comprehensive visual audit and fix **multiple sections** in this single iteration.
+You must perform the following repairs in this order:
 
-**Step 1: Visual Audit & Comparison**
-Compare Staging vs Original. Look specifically for:
-- **Hero:** Overlay darkness, font weights, vertical spacing.
-- **Icon Menu:** Exact icon sizes, color matches, hover states.
-- **Properties:** Grid gaps, card padding, image aspect ratios.
-- **CTA:** Text readability (overlay), button size.
-- **Footer:** Logo alignment and spacing.
+**Step 1: Fix Fonts & Colors (Assets)**
+- **Fonts:** The user asks if fonts are in `/assets`. Check. If not, **Enqueue Google Fonts (Raleway)** in `functions.php`.
+- **Colors:** Open `assets/css/main.css`. Find all instances of blue and force them to `#0066cc`.
 
-**Step 2: Execution (Code Changes)**
-- Modify `assets/css/main.css` and PHP templates to fix *all* identified discrepancies.
-- Ensure WCAG 2.1 AA compliance (contrast, focus states, aria-labels).
-- Adhere to WordPress Coding Standards (escaping/sanitization).
+**Step 2: Fix Header & Logo (Visuals)**
+- The header currently has a white background and borders.
+- **Fix:** On the homepage, the header should be transparent (overlaying the hero). Remove the white background and border from `.site-header` or `.navbar` in `main.css`.
 
-**Step 3: Commit & Push**
-- Commit changes logically (e.g., "Fix Hero styling", "Adjust Icon Menu spacing").
-- Push to `theme-distilled`.
+**Step 3: Fix Footer Duplication & Property Loop (Logic)**
+- **Footer:** The footer is repeating. Check `front-page.php`.
+    - Look for unclosed `<div>` tags.
+    - Look for multiple calls to `get_footer()`.
+    - Look for a `while` loop that doesn't end correctly.
+- **Properties:** The query is returning nothing.
+    - Ensure `post_type => 'rentalproperty'`.
+    - Add `wp_reset_postdata()` after your loops.
+
+**Step 4: Fix Scaling (Layout)**
+- Set the main container max-width to `1170px`.
+- Reduce the font size of H1 and H2 elements.
 
 **REQUIRED OUTPUT:**
-1.  **List of Discrepancies Found:** Grouped by section.
-2.  **Code Changes:** Diff snippets for CSS/PHP.
-3.  **Commit Log:** The specific commits you pushed.
-4.  **Accessibility Notes:** Improvements made.
+1.  **Root Cause:** Why was the footer repeating? Why were fonts missing?
+2.  **Code Changes:**
+    - `functions.php` (Font enqueue).
+    - `front-page.php` (Loop fix).
+    - `assets/css/main.css` (Color/Header fix).
+3.  **Commit:** "Fix critical layout bugs: fonts, footer duplication, and header styling."
 
 **EFFICIENCY INSTRUCTION:**
-Maximize the work done in this prompt. If you see a visual difference, fix it now. Do not wait for feedback to fix obvious visual mismatches (spacing, colors, sizes).
+Do not assume the code is correct. It is broken. Rewrite the `front-page.php` loop structure if necessary to ensure it is clean.
