@@ -142,7 +142,7 @@ $hero_subtitle = get_theme_mod('carmazzi_hero_subtitle', 'Residential Real Estat
                 <div class="cta-text">
                     <h2 class="cta-title">
                         <?php 
-                        echo esc_html(get_theme_mod('carmazzi_cta_text', 'Carmazzi Real Estate is committed to fulfilling our clients' real estate needs with the highest levels of integrity, honesty, trust and service. We are devoted to understanding our clients' real estate goals and passionate about providing a superior level of informed, reliable customer service. Carmazzi Real Estate will continue to build a reputation that establishes and maintains long-term, valued relationships with clients while remaining dedicated to looking after our clients' best interests and helping them accomplish their real estate goals.'));
+                        echo esc_html(get_theme_mod('carmazzi_cta_text', "Carmazzi Real Estate is committed to fulfilling our clients' real estate needs with the highest levels of integrity, honesty, trust and service. We are devoted to understanding our clients' real estate goals and passionate about providing a superior level of informed, reliable customer service. Carmazzi Real Estate will continue to build a reputation that establishes and maintains long-term, valued relationships with clients while remaining dedicated to looking after our clients' best interests and helping them accomplish their real estate goals."));
                         ?>
                     </h2>
                 </div>
