@@ -2,6 +2,21 @@
 
 A minimalist WordPress theme for rental property listings, distilled from the original Pinnacle-based CarmazziRealEstate theme.
 
+## Current Status
+
+**Version:** 1.0.1 (Iteration 2 Complete)  
+**Branch:** `theme-distilled`  
+**Status:** ✅ Ready for Staging Deployment
+
+### Latest Updates (Iteration 2)
+- ✅ CTA (Call to Action) section fully implemented
+- ✅ WordPress Customizer integration for CTA content
+- ✅ All front page sections complete and in correct order
+- ✅ Theme structure optimized and cleaned
+- ✅ Documentation updated
+
+See [ITERATION_2_SUMMARY.md](ITERATION_2_SUMMARY.md) for detailed changes.
+
 ## Features
 
 - **Custom Post Type**: Rental Property with all essential fields

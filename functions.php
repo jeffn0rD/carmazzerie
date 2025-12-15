@@ -439,6 +439,24 @@ function carmazzi_customize_register($wp_customize) {
         'section'  => 'carmazzi_hero',
         'type'     => 'text',
     ));
+
+    
+    // CTA Section
+    $wp_customize->add_section('carmazzi_cta', array(
+        'title'    => __('Call to Action Section', 'carmazzi-distilled'),
+        'priority' => 50,
+    ));
+    
+    $wp_customize->add_setting('carmazzi_cta_text', array(
+        'default'           => 'Carmazzi Real Estate is committed to fulfilling our clients\' real estate needs with the highest levels of integrity, honesty, trust and service. We are devoted to understanding our clients\' real estate goals and passionate about providing a superior level of informed, reliable customer service. Carmazzi Real Estate will continue to build a reputation that establishes and maintains long-term, valued relationships with clients while remaining dedicated to looking after our clients\' best interests and helping them accomplish their real estate goals.',
+        'sanitize_callback' => 'wp_kses_post',
+    ));
+    
+    $wp_customize->add_control('carmazzi_cta_text', array(
+        'label'    => __('CTA Text', 'carmazzi-distilled'),
+        'section'  => 'carmazzi_cta',
+        'type'     => 'textarea',
+    ));
 }
 add_action('customize_register', 'carmazzi_customize_register');
 
