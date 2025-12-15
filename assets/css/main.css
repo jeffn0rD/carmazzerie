@@ -272,7 +272,7 @@ p {
     background-size: cover;
     background-position: 21% center;
     background-repeat: no-repeat;
-    min-height: 500px;
+    min-height: 550px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -288,7 +288,7 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .hero-content {
@@ -302,16 +302,18 @@ p {
     font-size: 4rem;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    font-weight: 700;
+    font-weight: 800;
     color: #fff;
+    letter-spacing: -0.5px;
 }
 
 .hero-subtitle {
     font-size: 1.75rem;
     margin-bottom: 0;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-    font-weight: 400;
+    font-weight: 500;
     color: #fff;
+    letter-spacing: 0.5px;
 }
 
 /* ==========================================================================
@@ -320,7 +322,7 @@ p {
 
 .icon-menu-section {
     background-color: #e8e8e8;
-    padding: 3rem 0;
+    padding: 3.5rem 0;
 }
 
 .icon-menu-grid {
@@ -333,11 +335,17 @@ p {
 .icon-menu-item {
     text-decoration: none;
     color: #444;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .icon-menu-item:hover {
     color: #0066cc;
+    transform: translateY(-3px);
+}
+
+.icon-menu-item:focus {
+    outline: 2px solid #0066cc;
+    outline-offset: 4px;
 }
 
 .icon-circle {
@@ -350,6 +358,7 @@ p {
     justify-content: center;
     margin: 0 auto 1rem;
     transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .icon-menu-item:hover .icon-circle {
@@ -363,9 +372,10 @@ p {
 
 .icon-title {
     font-size: 1.25rem;
-    font-weight: 600;
-    color: #444;
+    font-weight: 700;
+    color: #333;
     text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 /* ==========================================================================
@@ -373,7 +383,7 @@ p {
    ========================================================================== */
 
 .properties-section {
-    padding: 4rem 0;
+    padding: 4.5rem 0;
     background-color: #fff;
 }
 
@@ -385,8 +395,9 @@ p {
     text-align: center;
     margin-bottom: 3rem;
     font-size: 2.5rem;
-    font-weight: 600;
-    color: #444;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: -0.5px;
 }
 
 .property-grid {
@@ -399,14 +410,16 @@ p {
 .property-card {
     background: #fff;
     border: 1px solid #ddd;
-    border-radius: 0;
+    border-radius: 4px;
     overflow: hidden;
-    transition: box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     text-align: center;
 }
 
 .property-card:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    border-color: #ccc;
 }
 
 .property-image {
@@ -417,13 +430,13 @@ p {
 }
 
 .property-content {
-    padding: 1.5rem;
+    padding: 1.75rem 1.5rem;
 }
 
 .property-title {
     margin: 0 0 0.75rem;
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.15rem;
+    font-weight: 700;
     line-height: 1.4;
 }
 
@@ -452,14 +465,15 @@ p {
 
 .read-more {
     display: inline-block;
-    padding: 0.5rem 1.5rem;
+    padding: 0.6rem 1.75rem;
     background-color: transparent;
     color: #0066cc;
     text-decoration: none;
     border: 2px solid #0066cc;
     border-radius: 4px;
     transition: all 0.3s ease;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.95rem;
 }
 
 .read-more:hover,
@@ -490,7 +504,7 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.65);
 }
 
 .cta-content {
@@ -508,10 +522,11 @@ p {
 
 .cta-title {
     font-size: 2rem;
-    line-height: 1.4;
+    line-height: 1.5;
     margin: 0;
-    font-weight: 700;
+    font-weight: 600;
     color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .cta-button {
@@ -520,18 +535,21 @@ p {
 
 .cta-button .btn {
     display: inline-block;
-    padding: 1rem 2rem;
+    padding: 1rem 2.5rem;
     background-color: #0066cc;
     color: #fff;
     text-decoration: none;
     border-radius: 4px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.1rem;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .cta-button .btn:hover {
     background-color: #096abf;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* ==========================================================================
@@ -541,7 +559,7 @@ p {
 .site-footer {
     background-color: #2c3e50;
     color: #bdc3c7;
-    padding: 3rem 0 1rem;
+    padding: 3rem 0 1.5rem;
     margin-top: 0;
 }
 
@@ -555,8 +573,10 @@ p {
 .footer-icons img {
     display: inline-block;
     height: 60px;
+    width: auto;
     margin: 0 15px;
     vertical-align: middle;
+    filter: brightness(0.95);
 }
 
 .footer-disclaimer {
@@ -565,7 +585,10 @@ p {
     color: #95a5a6;
     margin-bottom: 2rem;
     padding: 0 2rem;
-    line-height: 1.6;
+    line-height: 1.7;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer-content {

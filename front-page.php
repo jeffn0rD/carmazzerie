@@ -25,30 +25,30 @@ $hero_subtitle = get_theme_mod('carmazzi_hero_subtitle', 'Residential Real Estat
 <section class="icon-menu-section">
     <div class="container">
         <div class="icon-menu-grid">
-            <a href="<?php echo esc_url(home_url('/owners/')); ?>" class="icon-menu-item">
+            <a href="<?php echo esc_url(home_url('/owners/')); ?>" class="icon-menu-item" aria-label="Information for Property Owners">
                 <div class="icon-circle">
-                    <i class="icon-home">🏠</i>
+                    <i class="icon-home" aria-hidden="true">🏠</i>
                 </div>
                 <h4 class="icon-title"><?php _e('Owners', 'carmazzi-distilled'); ?></h4>
             </a>
             
-            <a href="<?php echo esc_url(home_url('/applicants/')); ?>" class="icon-menu-item">
+            <a href="<?php echo esc_url(home_url('/applicants/')); ?>" class="icon-menu-item" aria-label="Information for Rental Applicants">
                 <div class="icon-circle">
-                    <i class="icon-doc">📄</i>
+                    <i class="icon-doc" aria-hidden="true">📄</i>
                 </div>
                 <h4 class="icon-title"><?php _e('Applicants', 'carmazzi-distilled'); ?></h4>
             </a>
             
-            <a href="<?php echo esc_url(home_url('/for-sale/')); ?>" class="icon-menu-item">
+            <a href="<?php echo esc_url(home_url('/for-sale/')); ?>" class="icon-menu-item" aria-label="Properties For Sale">
                 <div class="icon-circle">
-                    <i class="icon-tag">🏷️</i>
+                    <i class="icon-tag" aria-hidden="true">🏷️</i>
                 </div>
                 <h4 class="icon-title"><?php _e('For Sale', 'carmazzi-distilled'); ?></h4>
             </a>
             
-            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="icon-menu-item">
+            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="icon-menu-item" aria-label="Contact Carmazzi Real Estate">
                 <div class="icon-circle">
-                    <i class="icon-user">👤</i>
+                    <i class="icon-user" aria-hidden="true">👤</i>
                 </div>
                 <h4 class="icon-title"><?php _e('Contact Us', 'carmazzi-distilled'); ?></h4>
             </a>
