@@ -61,11 +61,19 @@ add_action('after_setup_theme', 'carmazzi_distilled_setup');
  * Enqueue Scripts and Styles
  */
 function carmazzi_distilled_scripts() {
+    // Google Fonts - Raleway
+    wp_enqueue_style(
+        'carmazzi-google-fonts',
+        'https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&amp;display=swap',
+        array(),
+        null
+    );
+    
     // Main stylesheet
     wp_enqueue_style(
         'carmazzi-main',
         get_template_directory_uri() . '/assets/css/main.css',
-        array(),
+        array('carmazzi-google-fonts'),
         '1.0.0'
     );
     
