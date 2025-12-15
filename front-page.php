@@ -134,6 +134,26 @@ $hero_subtitle = get_theme_mod('carmazzi_hero_subtitle', 'Residential Real Estat
             
         </div>
     </section>
+    
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2 class="cta-title">
+                        <?php 
+                        echo esc_html(get_theme_mod('carmazzi_cta_text', 'Carmazzi Real Estate is committed to fulfilling our clients' real estate needs with the highest levels of integrity, honesty, trust and service. We are devoted to understanding our clients' real estate goals and passionate about providing a superior level of informed, reliable customer service. Carmazzi Real Estate will continue to build a reputation that establishes and maintains long-term, valued relationships with clients while remaining dedicated to looking after our clients' best interests and helping them accomplish their real estate goals.'));
+                        ?>
+                    </h2>
+                </div>
+                <div class="cta-button">
+                    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-primary">
+                        <?php _e('Contact Us', 'carmazzi-distilled'); ?>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 
 <?php
