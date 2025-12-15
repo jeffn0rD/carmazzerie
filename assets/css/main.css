@@ -68,10 +68,10 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Raleway', sans-serif;
 }
 
-h1 { font-size: 3rem; font-weight: 700; }
-h2 { font-size: 2.5rem; font-weight: 600; }
-h3 { font-size: 1.75rem; font-weight: 600; }
-h4 { font-size: 1.5rem; font-weight: 600; }
+h1 { font-size: 3rem; font-weight: 800; }
+h2 { font-size: 2.5rem; font-weight: 700; }
+h3 { font-size: 1.75rem; font-weight: 700; }
+h4 { font-size: 1.5rem; font-weight: 700; }
 h5 { font-size: 1.25rem; font-weight: 600; }
 h6 { font-size: 1rem; font-weight: 600; }
 
@@ -147,10 +147,13 @@ p {
     font-size: 0.9rem;
     text-decoration: none;
     padding: 0.25rem 0;
+    transition: color 0.3s ease;
 }
 
-.top-bar-menu a:hover {
+.top-bar-menu a:hover,
+.top-bar-menu a:focus {
     color: #ccc;
+    text-decoration: underline;
 }
 
 /* ==========================================================================
@@ -232,19 +235,20 @@ p {
 .main-navigation a {
     color: #fff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 18px;
-    padding: 4px 12px;
+    padding: 6px 14px;
     display: block;
     background-color: rgba(96, 96, 96, 0.7);
     border-radius: 8px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .main-navigation a:hover,
 .main-navigation a:focus {
     background-color: rgba(48, 48, 48, 0.9);
     color: #fff;
+    transform: translateY(-1px);
 }
 
 /* Skip to content link for accessibility */
@@ -388,7 +392,11 @@ p {
 }
 
 .property-section-wrapper {
-    margin-bottom: 4rem;
+    margin-bottom: 4.5rem;
+}
+
+.property-section-wrapper:last-child {
+    margin-bottom: 0;
 }
 
 .section-title {
@@ -452,14 +460,15 @@ p {
 
 .property-meta {
     color: #999;
-    font-size: 0.85rem;
+    font-size: 0.875rem;
     margin-bottom: 1rem;
+    font-style: italic;
 }
 
 .property-excerpt {
     color: #666;
-    margin-bottom: 1rem;
-    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    line-height: 1.65;
     font-size: 0.95rem;
 }
 
@@ -492,7 +501,7 @@ p {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 4rem 0;
+    padding: 5rem 0;
     color: #fff;
     margin: 4rem 0;
 }
@@ -513,7 +522,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .cta-text {
